@@ -19,6 +19,13 @@ pub(crate) fn create_viewport(x: i32, y: i32, width: i32, height: i32) -> Matrix
     return mat;
 }
 
+pub fn create_projection(r: f32) -> Matrix4<f32> {
+    // r = -1/c, c - camera distance from centre in Z axis
+    let mut projection = Matrix4::<f32>::identity();
+    projection.m43 = r;
+    return projection;
+}
+
 pub fn to_barycentric(
     p: Vector2<f32>,
     a: Vector2<f32>,
